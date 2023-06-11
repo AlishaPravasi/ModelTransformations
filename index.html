@@ -1,0 +1,78 @@
+`<!DOCTYPE html>
+<!--
+ Lab 3 - COMP3801 Spring 2021
+   ColorCube - draw a cube with six different color faces
+-->
+<html>
+  <head>
+    <title>Lab 3</title>
+    <link rel="icon" type="image/png" href="COMP3801_RGB_cube.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Common/webgl-utils-2.js" type="text/javascript"></script>
+    <script src="Common/initShaders2.js" type="text/javascript"></script>
+    <script src="Common/MV.js" type="text/javascript"></script>
+    <script src="ColorCube.js" type="text/javascript"></script>
+  </head>
+  <body onload="new ColorCube('gl-canvas')">
+    <div align="center">
+      <canvas id="gl-canvas" width="512" height="320">
+        This browser doesn't support the HTML5 canvas element
+      </canvas>
+      <table border=1>
+        <tr style="background-color: lightgray; color: black">
+          <td><input id="gl-canvas-rx-slider" type="range" min="-180" max="180" value="0"  step="0.01" style="width:200px" /></td>
+          <td>X Rotation</td>
+          <td id="gl-canvas-rx-value" style="width: 60px; text-align: right">0.00</td>
+        </tr>
+        <tr style="background-color: lightgray; color: black">
+          <td><input id="gl-canvas-ry-slider" type="range" min="-180" max="180" value="0"  step="0.01" style="width:200px" /></td>
+          <td>Y Rotation</td>
+          <td id="gl-canvas-ry-value" style="width: 60px; text-align: right">0.00</td>
+        </tr>
+        <tr style="background-color: lightgray; color: black">
+          <td><input id="gl-canvas-rz-slider" type="range" min="-180" max="180" value="0"  step="0.01" style="width:200px" /></td>
+          <td>Z Rotation</td>
+          <td id="gl-canvas-rz-value" style="width: 60px; text-align: right">0.00</td>
+        </tr>
+         <tr style="background-color: lightyellow; color: black">
+          <td><input id="gl-canvas-sx-slider" type="range" min="0.0" max="2.0" value="1.0"  step="0.01" style="width:200px" default="1.0" /></td>
+          <td>X Scale</td>
+          <td id="gl-canvas-sx-value" style="width: 60px; text-align: right">1.00</td>
+        </tr>
+        <tr style="background-color: lightyellow; color: black">
+          <td><input id="gl-canvas-sy-slider" type="range" min="0.0" max="2.0" value="1.0"  step="0.01" style="width:200px" /></td>
+          <td>Y Scale</td>
+          <td id="gl-canvas-sy-value" style="width: 60px; text-align: right">1.00</td>
+        </tr>
+        <tr style="background-color: lightyellow; color: black">
+          <td><input id="gl-canvas-sz-slider" type="range" min="0.0" max="2.0" value="1.0"  step="0.01" style="width:200px" /></td>
+          <td>Z Scale</td>
+          <td id="gl-canvas-sz-value" style="width: 60px; text-align: right">1.00</td>
+        </tr>
+        <tr style="background-color: lightgreen; color: black">
+          <td><input id="gl-canvas-tx-slider" type="range" min="-1.0" max="1.0" value="0.0"  step="0.01" style="width:200px" /></td>
+          <td>X Translate</td>
+          <td id="gl-canvas-tx-value" style="width: 60px; text-align: right">0.00</td>
+        </tr>
+        <tr style="background-color: lightgreen; color: black">
+          <td><input id="gl-canvas-ty-slider" type="range" min="-1.0" max="1.0" value="0.0"  step="0.01" style="width:200px" /></td>
+          <td>Y Translate</td>
+          <td id="gl-canvas-ty-value" style="width: 60px; text-align: right">0.00</td>
+        </tr>
+        <tr style="background-color: lightgreen; color: black">
+          <td><input id="gl-canvas-tz-slider" type="range" min="-1.0" max="1.0" value="0.0"  step="0.01" style="width:200px" /></td>
+          <td>Z Translate</td>
+          <td id="gl-canvas-tz-value" style="width: 60px; text-align: right">0.00</td>
+        </tr>
+      </table>
+        <div><p> Order </p>
+        Scale->Rot->Trans<input type="radio" id="srt" name="gl-canvas-order" checked/>
+        Scale->Trans->Rot<input type="radio" id="str"  name="gl-canvas-order" />
+        Rot->Scale->Trans<input type="radio" id="rst"  name="gl-canvas-order" />
+
+        </div>
+      
+    </div>
+  </body>
+</html>
